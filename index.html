@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedVisor — Intelligent Healthcare Platform</title>
+  <meta name="description" content="AI-powered healthcare platform for doctors, patients, researchers, and administrators — combining disease prediction, patient record management, appointment scheduling, and research-grade data analysis in one place.">
+
+  <link rel="icon" type="image/png" href="models/logo_fix.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ================= SPLASH SCREEN ================= -->
+  <div id="splashScreen" class="splash-screen">
+    <div class="splash-glow glow-1"></div>
+    <div class="splash-glow glow-2"></div>
+    <div class="splash-content">
+      <div class="splash-logo-wrapper">
+        <div class="pulse-ring ring-1"></div>
+        <div class="pulse-ring ring-2"></div>
+        <div class="logo-box">
+          <img src="models/logo_fix.png" alt="MedVisor Logo" class="splash-logo">
+        </div>
+      </div>
+      <div class="splash-brand">
+        <h1 class="splash-title">Med<span class="highlight-tuscan">Visor</span></h1>
+        <p class="splash-tagline">INTELLIGENT HEALTHCARE SOLUTIONS</p>
+      </div>
+      <div class="ecg-container">
+        <svg class="ecg-svg" viewBox="0 0 300 40" preserveAspectRatio="none">
+          <path class="ecg-bg-line" d="M0,20 L60,20 L75,8 L90,32 L105,12 L120,28 L135,20 L300,20" />
+          <path class="ecg-pulse-line" d="M0,20 L60,20 L75,8 L90,32 L105,12 L120,28 L135,20 L300,20" />
+        </svg>
+      </div>
+      <div class="splash-loader-area">
+        <div class="splash-progress-track">
+          <div class="splash-progress-bar" id="splashProgressBar"></div>
+        </div>
+        <div class="splash-status">
+          <span id="splashStatusText">Initializing secure workspace...</span>
+          <span id="splashPercent">0%</span>
+        </div>
+      </div>
+      <button id="skipSplashBtn" class="splash-skip-btn">Skip &rarr;</button>
+    </div>
+  </div>
+
+  <!-- ================= MAIN ================= -->
+  <div id="mainContent" class="main-content">
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="mv-navbar">
+      <nav class="mv-navbar__inner">
+        <a href="#home" class="mv-brand">
+          <span class="mv-brand__badge">
+            <img src="models/logo_fix.png" alt="MedVisor">
+          </span>
+          <span class="mv-brand__name">Med<span class="brand-accent">Visor</span></span>
+        </a>
+
+        <div class="mv-nav-links">
+          <a href="#ecosystem">Platform</a>
+          <a href="#diagnostics">AI Diagnostics</a>
+          <a href="#roles">Roles</a>
+          <a href="#anatomy">3D Anatomy</a>
+          <a href="#team">Team</a>
+        </div>
+
+        <div>
+          <a href="#anatomy" class="mv-launch-btn">
+            Launch
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+      <div class="mv-navbar__rule"></div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section id="home" class="mv-hero">
+      <div class="mv-hero__inner">
+        <span class="mv-hero__badge">
+          <span class="mv-hero__dot"></span>
+          Intelligent Healthcare Platform
+        </span>
+        <h1 class="mv-hero__title">
+          Better Decisions.<br>
+          Better <span class="mv-hero__highlight">Patient Care.</span>
+        </h1>
+        <p class="mv-hero__subtitle">
+          MedVisor brings together clinical intelligence, real-time diagnostics, and seamless EHR workflows — empowering healthcare teams to act faster and smarter.
+        </p>
+        <div class="mv-hero__cta">
+          <a href="#ecosystem" class="mv-btn mv-btn--primary">Get Started &rarr;</a>
+          <a href="#diagnostics" class="mv-btn mv-btn--ghost">Watch Overview</a>
+        </div>
+        <div class="mv-hero__trust">
+          <div class="mv-trust-item"><strong>500K+</strong><span>Patients Analyzed</span></div>
+          <div class="mv-trust-divider"></div>
+          <div class="mv-trust-item"><strong>99.4%</strong><span>Diagnostic Accuracy</span></div>
+          <div class="mv-trust-divider"></div>
+          <div class="mv-trust-item"><strong>HIPAA</strong><span>Compliant & Certified</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ECOSYSTEM ============ -->
+    <section id="ecosystem" class="mv-section mv-ecosystem">
+      <div class="mv-container">
+        <div class="mv-section-header">
+          <span class="mv-section-badge">PLATFORM ARCHITECTURE</span>
+          <h2 class="mv-section-title">Two Specialized Interfaces. One Unified Platform.</h2>
+          <p class="mv-section-subtitle">Frontline clinical delivery and computational biomedical research running in tandem.</p>
+        </div>
+
+        <div class="mv-bento-grid">
+          <div class="mv-bento mv-bento--dark" onclick="location.hash='#roles'">
+            <div class="mv-bento__top">
+              <div class="mv-bento__icon mv-bento__icon--sage">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <div class="mv-bento__tags">
+                <span class="mv-bento__chip mv-bento__chip--green">CLINICAL SUITE</span>
+                <span class="mv-bento__stat">HIPAA Verified</span>
+              </div>
+            </div>
+            <h3 class="mv-bento__title">Professional Care Interface</h3>
+            <p class="mv-bento__pitch">Patient telemetry, diagnostic inference, and clinical governance.</p>
+            <div class="mv-bento__features">
+              <div class="mv-bento__feature">Patient Portal &amp; Telehealth</div>
+              <div class="mv-bento__feature">Doctor AI Diagnostics</div>
+              <div class="mv-bento__feature">Admin Approval Queue</div>
+            </div>
+            <div class="mv-bento__footer">
+              <span class="mv-bento__link">Launch Clinical Workstation &rarr;</span>
+              <div class="mv-bento__indicator"><span class="mv-pulse mv-pulse--green"></span> 3 Roles Online</div>
+            </div>
+          </div>
+
+          <div class="mv-bento mv-bento--light" onclick="location.hash='#roles'">
+            <div class="mv-bento__top">
+              <div class="mv-bento__icon mv-bento__icon--dusty">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31M14 9.3V1.99M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
+              </div>
+              <div class="mv-bento__tags">
+                <span class="mv-bento__chip mv-bento__chip--blue">RESEARCH LAB</span>
+                <span class="mv-bento__stat">AutoML &amp; WebGL</span>
+              </div>
+            </div>
+            <h3 class="mv-bento__title">Educational Research Hub</h3>
+            <p class="mv-bento__pitch">End-to-end ML training pipeline and 3D organ exploration.</p>
+            <div class="mv-bento__features">
+              <div class="mv-bento__feature">10-Step ML Workbench</div>
+              <div class="mv-bento__feature">Interactive 3D Heart Studio</div>
+              <div class="mv-bento__feature">Federated Learning Sim</div>
+            </div>
+            <div class="mv-bento__footer">
+              <span class="mv-bento__link">Launch Research Modules &rarr;</span>
+              <div class="mv-bento__indicator"><span class="mv-pulse mv-pulse--blue"></span> 10 Stages Ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DIAGNOSTICS ============ -->
+    <section id="diagnostics" class="mv-section mv-diagnostics">
+      <div class="mv-container">
+        <div class="mv-section-header">
+          <span class="mv-section-badge">AI CLINICAL DIAGNOSTICS</span>
+          <h2 class="mv-section-title">Predictive Biomarker &amp; Imaging Console</h2>
+          <p class="mv-section-subtitle">Select any model to trigger real-time neural inference telemetry.</p>
+        </div>
+
+        <div class="mv-diag-pills" id="diagTabsList">
+          <button class="mv-diag-pill active" data-diag="alzheimers">
+            Alzheimer's Early Risk <strong class="mv-diag-pill__acc">98.2%</strong>
+          </button>
+          <button class="mv-diag-pill" data-diag="tumor">
+            Brain Tumor Profiling <strong class="mv-diag-pill__acc">99.1%</strong>
+          </button>
+          <button class="mv-diag-pill" data-diag="breast_cancer">
+            Breast Malignancy <strong class="mv-diag-pill__acc">97.8%</strong>
+          </button>
+          <button class="mv-diag-pill" data-diag="parkinsons">
+            Parkinson's Motor <strong class="mv-diag-pill__acc">96.4%</strong>
+          </button>
+          <button class="mv-diag-pill" data-diag="diabetes">
+            Diabetes &amp; Glucose <strong class="mv-diag-pill__acc">98.9%</strong>
+          </button>
+        </div>
+
+        <div class="mv-diag-console">
+          <div class="mv-diag-console__header">
+            <div>
+              <span class="mv-diag-console__category" id="drpCategory">NEUROLOGICAL MODEL</span>
+              <h3 class="mv-diag-console__title" id="drpTitle">Alzheimer's Disease Detection</h3>
+            </div>
+            <div class="mv-diag-console__meta">
+              <div class="mv-diag-console__stat">
+                <span class="mv-diag-console__stat-val" id="drpAccuracy">98.2%</span>
+                <span class="mv-diag-console__stat-lbl">Accuracy</span>
+              </div>
+              <div class="mv-diag-console__live">
+                <span class="mv-live-dot"></span>
+                <span>Inference Online</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mv-diag-visual">
+            <div class="mv-drp-screen active" id="screen-alzheimers">
+              <div class="mv-diag-layout">
+                <div class="mv-radar">
+                  <div class="mv-radar__circle rc-1"></div>
+                  <div class="mv-radar__circle rc-2"></div>
+                  <div class="mv-radar__circle rc-3"></div>
+                  <div class="mv-radar__sweep"></div>
+                  <div class="mv-radar__blip blip-1"></div>
+                  <div class="mv-radar__blip blip-2"></div>
+                </div>
+                <div class="mv-gauges">
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Hippocampal Atrophy</span>
+                    <strong class="mv-gauge__val mv-gauge__val--red">87% High Risk</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--red" style="width:87%"></div></div>
+                  </div>
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Biomarker Severity</span>
+                    <strong class="mv-gauge__val mv-gauge__val--yellow">Stage II Alert</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:65%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mv-drp-screen" id="screen-tumor">
+              <div class="mv-diag-layout">
+                <div class="mv-mri">
+                  <div class="mv-mri__grid">
+                    <div class="mv-mri__bar" style="height:25%"></div>
+                    <div class="mv-mri__bar" style="height:45%"></div>
+                    <div class="mv-mri__bar" style="height:85%"></div>
+                    <div class="mv-mri__bar mv-mri__bar--alert" style="height:100%"></div>
+                    <div class="mv-mri__bar mv-mri__bar--alert" style="height:92%"></div>
+                    <div class="mv-mri__bar" style="height:60%"></div>
+                    <div class="mv-mri__bar" style="height:35%"></div>
+                    <div class="mv-mri__bar" style="height:15%"></div>
+                  </div>
+                  <div class="mv-mri__target">ROI #04 Anomaly</div>
+                </div>
+                <div class="mv-gauges">
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Lesion Volume</span>
+                    <strong class="mv-gauge__val mv-gauge__val--yellow">2.8 cm³</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:58%"></div></div>
+                  </div>
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Confidence Rate</span>
+                    <strong class="mv-gauge__val mv-gauge__val--green">99.1% High</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--green" style="width:99%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mv-drp-screen" id="screen-breast_cancer">
+              <div class="mv-diag-layout">
+                <div class="mv-histo">
+                  <div class="mv-histo__ring mv-histo__ring--1"></div>
+                  <div class="mv-histo__ring mv-histo__ring--2"></div>
+                  <div class="mv-histo__nodes">
+                    <div class="mv-histo__node cn-1"></div>
+                    <div class="mv-histo__node cn-2"></div>
+                    <div class="mv-histo__node cn-3"></div>
+                  </div>
+                </div>
+                <div class="mv-gauges">
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Cell Morphology</span>
+                    <strong class="mv-gauge__val mv-gauge__val--green">Benign Structure</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--green" style="width:94%"></div></div>
+                  </div>
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Perimeter Uniformity</span>
+                    <strong class="mv-gauge__val mv-gauge__val--green">97.8% Regular</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--green" style="width:97%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mv-drp-screen" id="screen-parkinsons">
+              <div class="mv-diag-layout">
+                <div class="mv-audio">
+                  <div class="mv-audio__bar f1"></div><div class="mv-audio__bar f2"></div>
+                  <div class="mv-audio__bar f3"></div><div class="mv-audio__bar f4"></div>
+                  <div class="mv-audio__bar f5"></div><div class="mv-audio__bar f6"></div>
+                  <div class="mv-audio__bar f7"></div><div class="mv-audio__bar f8"></div>
+                </div>
+                <div class="mv-gauges">
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Resting Tremor Peak</span>
+                    <strong class="mv-gauge__val mv-gauge__val--yellow">5.4 Hz Band</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:62%"></div></div>
+                  </div>
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Gait Telemetry</span>
+                    <strong class="mv-gauge__val mv-gauge__val--yellow">62% Moderate</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:62%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mv-drp-screen" id="screen-diabetes">
+              <div class="mv-diag-layout">
+                <div class="mv-glucose">
+                  <div class="mv-glucose__track"><div class="mv-glucose__fill"></div></div>
+                  <div class="mv-glucose__threshold">Critical Threshold: 180 mg/dL</div>
+                </div>
+                <div class="mv-gauges">
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Fasting Level</span>
+                    <strong class="mv-gauge__val mv-gauge__val--red">214 mg/dL Spike</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--red" style="width:88%"></div></div>
+                  </div>
+                  <div class="mv-gauge">
+                    <span class="mv-gauge__lbl">Auto-Dispatch</span>
+                    <strong class="mv-gauge__val mv-gauge__val--red">Email Triggered</strong>
+                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--red" style="width:100%"></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mv-diag-strip">
+            <div class="mv-diag-strip__item">
+              <span class="mv-diag-strip__lbl">MODALITY</span>
+              <strong class="mv-diag-strip__val" id="specInput">Volumetric MRI &amp; Biomarkers</strong>
+            </div>
+            <div class="mv-diag-strip__item">
+              <span class="mv-diag-strip__lbl">ARCHITECTURE</span>
+              <strong class="mv-diag-strip__val" id="specArch">DenseNet-121 + XGBoost</strong>
+            </div>
+            <div class="mv-diag-strip__item">
+              <span class="mv-diag-strip__lbl">LATENCY</span>
+              <strong class="mv-diag-strip__val" id="specLatency">140 ms / batch</strong>
+            </div>
+            <div class="mv-diag-strip__item">
+              <span class="mv-diag-strip__lbl">DISPATCH</span>
+              <strong class="mv-diag-strip__val" id="specAlert">Automated Email &amp; EHR Sync</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ROLES ============ -->
+    <section id="roles" class="mv-section mv-roles">
+      <div class="mv-container">
+        <div class="mv-section-header">
+          <span class="mv-section-badge">UNIFIED ROLE WORKSTATIONS</span>
+          <h2 class="mv-section-title">Interactive Stakeholder Command Hub</h2>
+          <p class="mv-section-subtitle">Toggle through real platform interfaces tailored for patient care, clinical diagnosis, governance, and ML research.</p>
+        </div>
+
+        <div class="mv-role-tabs">
+          <button class="mv-role-tab active" data-role="patient">Patient Portal</button>
+          <button class="mv-role-tab" data-role="doctor">Doctor Workstation</button>
+          <button class="mv-role-tab" data-role="admin">Admin Governance</button>
+          <button class="mv-role-tab" data-role="researcher">ML Researcher Hub</button>
+        </div>
+
+        <div class="mv-role-panels">
+
+          <!-- PATIENT -->
+          <div class="mv-role-panel active" id="panel-patient">
+            <div class="mv-role-layout">
+              <div class="mv-role-side">
+                <span class="mv-role-side__badge">PATIENT WORKSPACE</span>
+                <h3 class="mv-role-side__title">Frictionless Healthcare Access</h3>
+                <div class="mv-role-side__list">
+                  <div class="mv-role-pill">1-Click Self-Scheduling &amp; Instant Sync</div>
+                  <div class="mv-role-pill">Encrypted HD Video Telehealth Room</div>
+                  <div class="mv-role-pill">Longitudinal Medical History Log</div>
+                </div>
+                <a href="#" class="mv-role-action">Create Patient Account &rarr;</a>
+              </div>
+              <div class="mv-role-sim">
+                <div class="mv-sim">
+                  <div class="mv-sim__header">
+                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span class="mv-sim__dot mv-sim__dot--yellow"></span><span class="mv-sim__dot mv-sim__dot--green"></span></div>
+                    <span class="mv-sim__title">Patient Portal • Active Consultation</span>
+                    <span class="mv-sim__chip mv-sim__chip--live">Verified Session</span>
+                  </div>
+                  <div class="mv-sim__body">
+                    <div class="mv-sim__subcard">
+                      <div class="mv-sim__head">
+                        <strong>Upcoming Cardiology Telehealth</strong>
+                        <span class="mv-sim__badge mv-sim__badge--green">Unlocked &amp; Ready</span>
+                      </div>
+                      <div class="mv-sim__doctor">
+                        <div class="mv-sim__avatar">SK</div>
+                        <div>
+                          <strong>Dr. Sarah Khan, MD</strong>
+                          <span>Cardiology • 10:30 AM Tomorrow</span>
+                        </div>
+                      </div>
+                      <button class="mv-sim__cta" onclick="alert('Telehealth Video Room Session Initialized!')">Enter Encrypted Video Room</button>
+                    </div>
+                    <div class="mv-sim__stats">
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">3</span><span class="mv-sim__stat-lbl">Prescriptions</span></div>
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">2</span><span class="mv-sim__stat-lbl">Lab Reports</span></div>
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val mv-sim__stat-val--green">Active</span><span class="mv-sim__stat-lbl">Doctor Sync</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCTOR -->
+          <div class="mv-role-panel" id="panel-doctor">
+            <div class="mv-role-layout">
+              <div class="mv-role-side">
+                <span class="mv-role-side__badge">PHYSICIAN STATION</span>
+                <h3 class="mv-role-side__title">Diagnostic Telemetry &amp; Alerts</h3>
+                <div class="mv-role-side__list">
+                  <div class="mv-role-pill">AI Disease Risk Inference &amp; Telemetry</div>
+                  <div class="mv-role-pill">1-Click Emergency Email Dispatch</div>
+                  <div class="mv-role-pill">Patient Directory &amp; History Lookup</div>
+                </div>
+                <a href="#" class="mv-role-action">Doctor Portal Sign In &rarr;</a>
+              </div>
+              <div class="mv-role-sim">
+                <div class="mv-sim">
+                  <div class="mv-sim__header">
+                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span class="mv-sim__dot mv-sim__dot--yellow"></span><span class="mv-sim__dot mv-sim__dot--green"></span></div>
+                    <span class="mv-sim__title">Physician Station • Dr. S. Khan</span>
+                    <span class="mv-sim__chip mv-sim__chip--red">Risk Detected</span>
+                  </div>
+                  <div class="mv-sim__body">
+                    <div class="mv-sim__subcard mv-sim__subcard--alert">
+                      <div class="mv-sim__head">
+                        <strong>Patient #104 Diagnostic Alert</strong>
+                        <span class="mv-sim__badge mv-sim__badge--red">Critical Glucose Spike</span>
+                      </div>
+                      <div class="mv-sim__chips">
+                        <span class="mv-sim__chip-sm">Glucose: 214 mg/dL</span>
+                        <span class="mv-sim__chip-sm">HbA1c: 8.9%</span>
+                        <span class="mv-sim__chip-sm">Confidence: 98.9%</span>
+                      </div>
+                      <button class="mv-sim__cta mv-sim__cta--red" id="doctorAlertBtn">Dispatch Emergency Alert</button>
+                    </div>
+                    <div class="mv-sim__list">
+                      <div class="mv-sim__item"><span>John Doe (#104)</span><span class="mv-sim__tag mv-sim__tag--red">Action Req</span></div>
+                      <div class="mv-sim__item"><span>Elena Rostova (#105)</span><span class="mv-sim__tag mv-sim__tag--green">Stable</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADMIN -->
+          <div class="mv-role-panel" id="panel-admin">
+            <div class="mv-role-layout">
+              <div class="mv-role-side">
+                <span class="mv-role-side__badge">GOVERNANCE PANEL</span>
+                <h3 class="mv-role-side__title">Approval Queue &amp; Oversight</h3>
+                <div class="mv-role-side__list">
+                  <div class="mv-role-pill">Physician Appointment Queue Moderation</div>
+                  <div class="mv-role-pill">Strict Role Visibility Enforcement</div>
+                  <div class="mv-role-pill">Whole-System Uptime &amp; Audit Logs</div>
+                </div>
+                <a href="#" class="mv-role-action">Admin Control Sign In &rarr;</a>
+              </div>
+              <div class="mv-role-sim">
+                <div class="mv-sim">
+                  <div class="mv-sim__header">
+                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span class="mv-sim__dot mv-sim__dot--yellow"></span><span class="mv-sim__dot mv-sim__dot--green"></span></div>
+                    <span class="mv-sim__title">Admin Console • Governance Queue</span>
+                    <span class="mv-sim__chip mv-sim__chip--yellow" id="adminQueueCount">1 Pending</span>
+                  </div>
+                  <div class="mv-sim__body">
+                    <div class="mv-sim__subcard">
+                      <div class="mv-sim__head">
+                        <strong>Slot Request #840</strong>
+                        <span class="mv-sim__badge mv-sim__badge--yellow" id="adminReqBadge">Pending Approval</span>
+                      </div>
+                      <div class="mv-sim__detail">
+                        <div><strong>Physician:</strong> Dr. Sarah Khan (Cardiology)</div>
+                        <div><strong>Patient:</strong> John Doe (#104) • Tomorrow 10:30 AM</div>
+                      </div>
+                      <div class="mv-sim__split" id="adminActionButtons">
+                        <button class="mv-sim__cta mv-sim__cta--green" onclick="handleAdminApproval(true)">Approve Consultation</button>
+                        <button class="mv-sim__cta mv-sim__cta--red-ghost" onclick="handleAdminApproval(false)">Reject</button>
+                      </div>
+                      <div class="mv-sim__feedback" id="adminFeedback" style="display:none;"></div>
+                    </div>
+                    <div class="mv-sim__stats">
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val mv-sim__stat-val--green">99.98%</span><span class="mv-sim__stat-lbl">Uptime</span></div>
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">12</span><span class="mv-sim__stat-lbl">Active Rooms</span></div>
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val mv-sim__stat-val--green">0</span><span class="mv-sim__stat-lbl">Audit Flags</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RESEARCHER -->
+          <div class="mv-role-panel" id="panel-researcher">
+            <div class="mv-role-layout">
+              <div class="mv-role-side">
+                <span class="mv-role-side__badge">RESEARCH WORKBENCH</span>
+                <h3 class="mv-role-side__title">10-Step ML Pipeline</h3>
+                <div class="mv-role-side__list">
+                  <div class="mv-role-pill">CSV Ingest &rarr; AutoML &rarr; Model Export</div>
+                  <div class="mv-role-pill">Bayesian Hyperparameter Optimization</div>
+                  <div class="mv-role-pill">Multi-Node Federated Learning Simulation</div>
+                </div>
+                <a href="#" class="mv-role-action">Launch ML Workbench &rarr;</a>
+              </div>
+              <div class="mv-role-sim">
+                <div class="mv-sim">
+                  <div class="mv-sim__header">
+                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span class="mv-sim__dot mv-sim__dot--yellow"></span><span class="mv-sim__dot mv-sim__dot--green"></span></div>
+                    <span class="mv-sim__title">ML Pipeline Visualizer</span>
+                    <span class="mv-sim__chip mv-sim__chip--blue" id="mlStepChip">Step 7 of 10</span>
+                  </div>
+                  <div class="mv-sim__body">
+                    <div class="mv-stepper" id="pipelineStepperTrack"></div>
+                    <div class="mv-sim__subcard">
+                      <div class="mv-sim__head">
+                        <strong id="pipelineStepTitle">Step 7: Automated Machine Learning (AutoML)</strong>
+                        <span class="mv-sim__badge mv-sim__badge--green" id="pipelineStepBadge">Training Active</span>
+                      </div>
+                      <div class="mv-sim__chips" id="pipelineChips">
+                        <span class="mv-sim__chip-sm">Bayesian Opt</span>
+                        <span class="mv-sim__chip-sm">5-Fold CV</span>
+                        <span class="mv-sim__chip-sm">Top AUC: 0.992</span>
+                      </div>
+                      <button class="mv-sim__cta" id="pipelineActionBtn" onclick="advancePipelineDemo()">Advance to Next Step</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3D ANATOMY ============ -->
+    <section id="anatomy" class="mv-section mv-anatomy">
+      <div class="mv-container">
+        <div class="mv-section-header">
+          <span class="mv-section-badge">EDUCATIONAL 3D MODULE</span>
+          <h2 class="mv-section-title">Interactive 3D Human Anatomy Studio</h2>
+          <p class="mv-section-subtitle">Select any disease module below to load its anatomical model — orbit 360°, zoom, and observe the live cardiac rhythm.</p>
+        </div>
+
+        <div class="mv-viewer-card" data-organ-viewer data-organ-state="idle" data-autoload="true">
+          <div class="mv-viewer-card__topbar">
+            <div class="mv-viewer-card__meta">
+              <span class="mv-live-dot"></span>
+              <strong>WebGL 3D Engine &bull; Human Anatomy Viewer</strong>
+            </div>
+            <div class="mv-viewer-card__status" id="sceneBpmStatus">72 BPM • Sinus Rhythm</div>
+          </div>
+
+          <div class="mv-viewer-card__canvas">
+            <span class="mv-organ__bar" data-organ-bar aria-hidden="true"></span>
+            <div class="mv-organ__stage" data-organ-stage>
+              <p class="mv-organ__empty">Select a prediction module below to load its anatomical model.</p>
+            </div>
+            <div class="mv-viewer-card__hint">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/></svg>
+              <span>Click &amp; Drag to Rotate • Scroll to Zoom</span>
+            </div>
+          </div>
+
+          <div class="mv-viewer-card__console">
+            <div class="mv-bpm-widget" data-bpm-widget hidden>
+              <div class="mv-bpm-widget__header">
+                <span>Heart Rate Controller:</span>
+                <strong id="bpmCounter">72 BPM</strong>
+              </div>
+              <input type="range" id="bpmRangeSlider" min="40" max="160" value="72" class="mv-bpm-slider">
+              <div class="mv-bpm-widget__scale">
+                <span>40 (Rest)</span><span>72 (Normal)</span><span>160 (Peak)</span>
+              </div>
+            </div>
+            <div class="mv-callout">
+              <div class="mv-callout__head">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8AAFC0" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <strong id="calloutTitle">Human Heart</strong>
+              </div>
+              <p id="calloutDesc">Four-chambered neuromuscular pump circulating ~5 L/min through systemic &amp; pulmonary loops.</p>
+            </div>
+            <div class="mv-viewer-card__reset">
+              <button type="button" class="mv-reset-btn" data-organ-reset>Reset 3D View</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mv-models">
+          <div class="mv-models__head">
+            <span class="mv-models__label">Disease Prediction Modules</span>
+            <span class="mv-models__hint">Click any card to load its model</span>
+          </div>
+          <div class="mv-models__grid" id="modelGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEAM ============ -->
+    <section id="team" class="mv-section mv-team">
+      <div class="mv-container">
+        <div class="mv-team__header">
+          <span class="mv-team__eyebrow">Final Year Project Team</span>
+          <h2 class="mv-team__title">Developed By</h2>
+          <p class="mv-team__subtitle">Meet the team behind MedVisor</p>
+        </div>
+
+        <div class="mv-team__grid">
+          <div class="mv-team__card">
+            <div class="mv-team__avatar mv-team__avatar--sage-dusty">AA</div>
+            <p class="mv-team__name">Aliha Asif</p>
+            <p class="mv-team__id">FA23-BSE-092</p>
+          </div>
+          <div class="mv-team__card">
+            <div class="mv-team__avatar mv-team__avatar--dusty-tuscan">AA</div>
+            <p class="mv-team__name">Arham Arif</p>
+            <p class="mv-team__id">FA23-BSE-113</p>
+          </div>
+          <div class="mv-team__card">
+            <div class="mv-team__avatar mv-team__avatar--tuscan-sage">AA</div>
+            <p class="mv-team__name">Ariba Amir</p>
+            <p class="mv-team__id">FA23-BSE-138</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <span class="footer-logo-badge">
+              <img src="models/logo_fix.png" alt="MedVisor Logo">
+            </span>
+            <span class="brand-text">Med<span class="brand-accent">Visor</span></span>
+          </div>
+          <p>Integrated healthcare and computational biomedical exploration platform.</p>
+          <div class="footer-trust-badges">
+            <div class="ft-badge">HIPAA Compliant</div>
+            <div class="ft-badge">256-Bit Encrypted</div>
+            <div class="ft-badge">HL7 FHIR Ready</div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#home">Home Overview</a>
+          <a href="#ecosystem">Platform Ecosystem</a>
+          <a href="#diagnostics">AI Diagnostics</a>
+          <a href="#roles">Role Portals</a>
+          <a href="#anatomy">3D Anatomy Lab</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Clinical &amp; ML</h4>
+          <a href="#diagnostics">Alzheimer's Detection</a>
+          <a href="#diagnostics">Brain Tumor Profiling</a>
+          <a href="#diagnostics">Metabolic Screening</a>
+          <a href="#roles">10-Step ML Pipeline</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <p>&copy; <span id="year"></span> MedVisor FYP Healthcare Platform. All rights reserved.</p>
+          <div class="footer-legal-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Security</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="script.js" type="module"></script>
+</body>
+</html>

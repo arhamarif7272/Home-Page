@@ -1,0 +1,3 @@
+npm install three gsap
+npm install bootstrap
+npm install bootstrap-icons
