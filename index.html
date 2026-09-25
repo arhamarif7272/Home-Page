@@ -94,29 +94,117 @@
     </header>
 
     <!-- ============ HERO ============ -->
-    <section id="home" class="mv-hero">
-      <div class="mv-hero__inner">
-        <span class="mv-hero__badge">
-          <span class="mv-hero__dot"></span>
-          Intelligent Healthcare Platform
-        </span>
-        <h1 class="mv-hero__title">
-          Better Decisions.<br>
-          Better <span class="mv-hero__highlight">Patient Care.</span>
-        </h1>
-        <p class="mv-hero__subtitle">
-          MedVisor brings together clinical intelligence, real-time diagnostics, and seamless EHR workflows — empowering healthcare teams to act faster and smarter.
-        </p>
-        <div class="mv-hero__cta">
-          <a href="#ecosystem" class="mv-btn mv-btn--primary">Get Started &rarr;</a>
-          <a href="#diagnostics" class="mv-btn mv-btn--ghost">Watch Overview</a>
+    <section id="home" class="hero-section">
+      <div class="hero-left">
+        <div class="hero-left-content">
+          <span class="hero-eyebrow"><span class="eyebrow-dot"></span> Intelligent Healthcare Platform</span>
+          <h1 class="hero-heading">Better Decisions.<br>Better <span class="hero-highlight">Patient Care.</span></h1>
+          <p class="hero-tagline">Medvisor brings together clinical intelligence, real-time diagnostics, and seamless EHR workflows — empowering healthcare teams to act faster and smarter.</p>
+          <div class="hero-cta-group">
+            <a href="#ecosystem" class="cta-primary">Get Started &rarr;</a>
+            <a href="#diagnostics" class="cta-ghost">Watch Overview</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-item"><strong>500K+</strong><span>Patients Analyzed</span></div>
+            <div class="trust-divider"></div>
+            <div class="trust-item"><strong>99.4%</strong><span>Diagnostic Accuracy</span></div>
+            <div class="trust-divider"></div>
+            <div class="trust-item"><strong>HIPAA</strong><span>Compliant & Certified</span></div>
+          </div>
         </div>
-        <div class="mv-hero__trust">
-          <div class="mv-trust-item"><strong>500K+</strong><span>Patients Analyzed</span></div>
-          <div class="mv-trust-divider"></div>
-          <div class="mv-trust-item"><strong>99.4%</strong><span>Diagnostic Accuracy</span></div>
-          <div class="mv-trust-divider"></div>
-          <div class="mv-trust-item"><strong>HIPAA</strong><span>Compliant & Certified</span></div>
+      </div>
+
+      <div class="hero-divider">
+        <svg class="torn-svg" viewBox="0 0 120 800" preserveAspectRatio="none"><polygon points="0,0 72,0 68,38 78,52 60,70 80,88 62,108 76,130 58,150 82,172 72,192 84,212 64,234 80,254 60,278 78,298 62,318 80,340 58,362 76,384 64,404 82,422 60,444 78,464 68,484 84,504 62,524 80,544 58,566 76,586 66,606 82,626 62,646 78,668 64,690 80,708 60,728 76,748 68,768 80,800 0,800" fill="#FAF9F6"/></svg>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-carousel" id="heroCarousel">
+          <div class="carousel-track">
+            <!-- Slide 1: Live Vitals -->
+            <div class="carousel-slide active">
+              <div class="slide-visual">
+                <div class="slide-inner-card">
+                  <div class="slide-icon-row">
+                    <div class="slide-icon-circle">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAF9F6" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <span class="slide-tag">Live Vitals</span>
+                  </div>
+                  <div class="slide-chart">
+                    <div class="chart-bar-wrap">
+                      <div class="cbar" style="height:40%"></div>
+                      <div class="cbar" style="height:65%"></div>
+                      <div class="cbar" style="height:50%"></div>
+                      <div class="cbar" style="height:80%"></div>
+                      <div class="cbar" style="height:60%"></div>
+                      <div class="cbar" style="height:95%"></div>
+                      <div class="cbar" style="height:70%"></div>
+                      <div class="cbar" style="height:88%"></div>
+                    </div>
+                  </div>
+                  <div class="slide-stat-row">
+                    <div class="slide-stat"><span class="stat-val">98.6°F</span><span class="stat-lbl">Temperature</span></div>
+                    <div class="slide-stat"><span class="stat-val">72 bpm</span><span class="stat-lbl">Heart Rate</span></div>
+                    <div class="slide-stat"><span class="stat-val">99%</span><span class="stat-lbl">SpO2</span></div>
+                  </div>
+                </div>
+                <p class="slide-caption">Real-Time Patient Monitoring</p>
+              </div>
+            </div>
+
+            <!-- Slide 2: AI Diagnostics -->
+            <div class="carousel-slide">
+              <div class="slide-visual">
+                <div class="slide-inner-card">
+                  <div class="slide-icon-row">
+                    <div class="slide-icon-circle">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAF9F6" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <span class="slide-tag">AI Diagnostics</span>
+                  </div>
+                  <div class="slide-ai-scan">
+                    <div class="scan-ring outer"></div>
+                    <div class="scan-ring inner"></div>
+                    <div class="scan-line"></div>
+                  </div>
+                  <div class="slide-stat-row">
+                    <div class="slide-stat"><span class="stat-val">3.2s</span><span class="stat-lbl">Scan Time</span></div>
+                    <div class="slide-stat"><span class="stat-val">99.1%</span><span class="stat-lbl">Confidence</span></div>
+                    <div class="slide-stat"><span class="stat-val">12</span><span class="stat-lbl">Biomarkers</span></div>
+                  </div>
+                </div>
+                <p class="slide-caption">Predictive AI Diagnostics</p>
+              </div>
+            </div>
+
+            <!-- Slide 3: EHR Integration -->
+            <div class="carousel-slide">
+              <div class="slide-visual">
+                <div class="slide-inner-card">
+                  <div class="slide-icon-row">
+                    <div class="slide-icon-circle">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAF9F6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    </div>
+                    <span class="slide-tag">EHR Integration</span>
+                  </div>
+                  <div class="slide-records">
+                    <div class="record-row"><span class="rec-dot green"></span><span class="rec-label">Patient History</span><span class="rec-status">Synced</span></div>
+                    <div class="record-row"><span class="rec-dot green"></span><span class="rec-label">Lab Results</span><span class="rec-status">Updated</span></div>
+                    <div class="record-row"><span class="rec-dot yellow"></span><span class="rec-label">Prescriptions</span><span class="rec-status">Pending</span></div>
+                    <div class="record-row"><span class="rec-dot green"></span><span class="rec-label">Imaging Data</span><span class="rec-status">Uploaded</span></div>
+                  </div>
+                </div>
+                <p class="slide-caption">Unified EHR Workflows</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-dots">
+            <button class="cdot active" data-slide="0"></button>
+            <button class="cdot" data-slide="1"></button>
+            <button class="cdot" data-slide="2"></button>
+          </div>
         </div>
       </div>
     </section>

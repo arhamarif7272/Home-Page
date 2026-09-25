@@ -92,7 +92,62 @@ function initSplash() {
 
   document.getElementById('year').textContent = new Date().getFullYear();
 }
+/* ---------- Hero carousel ---------- */
+function initHeroCarousel() {
+  const slides = document.querySelectorAll('.hero-carousel .carousel-slide');
+  const dots = document.querySelectorAll('.hero-carousel .cdot');
+  if (!slides.length || !dots.length) return;
 
+  let current = 0;
+  let timer = null;
+
+  function go(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() {
+    go((current + 1) % slides.length);
+  }
+
+  function startAuto() {
+    if (slides.length < 2) return;
+    stopAuto();
+    timer = setInterval(next, 4500);
+  }
+
+  function stopAuto() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+
+  // Click on dots
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      go(i);
+      startAuto(); // reset the timer so it doesn't jump immediately after
+    });
+  });
+
+  // Pause on hover (nice touch on desktop)
+  const carousel = document.querySelector('.hero-carousel');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+  }
+
+  // Pause when tab is hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') startAuto();
+    else stopAuto();
+  });
+
+  // Respect reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion) startAuto();
+}
 /* ------------------------------------------------------------------
    Build the model selector grid from MODULES
 ------------------------------------------------------------------ */
