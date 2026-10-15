@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MedVisor — Intelligent Healthcare Platform</title>
-  <meta name="description" content="AI-powered healthcare platform for doctors, patients, researchers, and administrators — combining disease prediction, patient record management, appointment scheduling, and research-grade data analysis in one place.">
+  <meta name="description"
+    content="AI-powered healthcare platform for doctors, patients, researchers, and administrators — combining disease prediction, patient record management, appointment scheduling, and research-grade data analysis in one place.">
 
   <link rel="icon" type="image/png" href="models/logo_fix.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 
@@ -23,6 +27,7 @@
     }
   </script>
 </head>
+
 <body>
 
   <!-- ================= SPLASH SCREEN ================= -->
@@ -63,148 +68,73 @@
   <!-- ================= MAIN ================= -->
   <div id="mainContent" class="main-content">
 
-    <!-- ============ NAVBAR ============ -->
+    <!-- ============ FLOATING PILL NAVBAR ============ -->
     <header class="mv-navbar">
       <nav class="mv-navbar__inner">
-        <a href="#home" class="mv-brand">
-          <span class="mv-brand__badge">
-            <img src="models/logo_fix.png" alt="MedVisor">
-          </span>
-          <span class="mv-brand__name">Med<span class="brand-accent">Visor</span></span>
-        </a>
-
-        <div class="mv-nav-links">
-          <a href="#ecosystem">Platform</a>
-          <a href="#diagnostics">AI Diagnostics</a>
-          <a href="#roles">Roles</a>
-          <a href="#anatomy">3D Anatomy</a>
-          <a href="#team">Team</a>
+        <div class="mv-nav-capsule">
+          <a href="#ecosystem" class="mv-nav-link active">Platform</a>
+          <a href="#diagnostics" class="mv-nav-link">AI Diagnostics</a>
+          <a href="#roles" class="mv-nav-link">Roles</a>
+          <a href="#anatomy" class="mv-nav-link">3D Anatomy</a>
+          <a href="#team" class="mv-nav-link">Team</a>
         </div>
 
-        <div>
+        <div class="mv-nav-cta-wrap">
           <a href="#anatomy" class="mv-launch-btn">
-            Launch
+            <span>Launch</span>
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
         </div>
       </nav>
-      <div class="mv-navbar__rule"></div>
     </header>
 
     <!-- ============ HERO ============ -->
     <section id="home" class="hero-section">
-      <div class="hero-left">
-        <div class="hero-left-content">
-          <span class="hero-eyebrow"><span class="eyebrow-dot"></span> Intelligent Healthcare Platform</span>
-          <h1 class="hero-heading">Better Decisions.<br>Better <span class="hero-highlight">Patient Care.</span></h1>
-          <p class="hero-tagline">Medvisor brings together clinical intelligence, real-time diagnostics, and seamless EHR workflows — empowering healthcare teams to act faster and smarter.</p>
-          <div class="hero-cta-group">
-            <a href="#ecosystem" class="cta-primary">Get Started &rarr;</a>
-            <a href="#diagnostics" class="cta-ghost">Watch Overview</a>
-          </div>
-          <div class="hero-trust">
-            <div class="trust-item"><strong>500K+</strong><span>Patients Analyzed</span></div>
-            <div class="trust-divider"></div>
-            <div class="trust-item"><strong>99.4%</strong><span>Diagnostic Accuracy</span></div>
-            <div class="trust-divider"></div>
-            <div class="trust-item"><strong>HIPAA</strong><span>Compliant & Certified</span></div>
-          </div>
+      <div class="hero-content">
+        <span class="hero-eyebrow"><span class="eyebrow-dot"></span> Intelligent Healthcare Platform</span>
+        <h1 class="hero-heading">Better Decisions. Better <span class="hero-highlight">Patient Care.</span></h1>
+        <p class="hero-tagline">MedVisor connects patients, doctors, and students in real time with clinical AI
+          diagnostics and unified workflows.</p>
+        <div class="hero-cta-group">
+          <a href="#ecosystem" class="cta-primary">Get Started &rarr;</a>
+          <a href="#diagnostics" class="cta-ghost">Watch Overview</a>
         </div>
       </div>
 
-      <div class="hero-divider">
-        <svg class="torn-svg" viewBox="0 0 120 800" preserveAspectRatio="none"><polygon points="0,0 72,0 68,38 78,52 60,70 80,88 62,108 76,130 58,150 82,172 72,192 84,212 64,234 80,254 60,278 78,298 62,318 80,340 58,362 76,384 64,404 82,422 60,444 78,464 68,484 84,504 62,524 80,544 58,566 76,586 66,606 82,626 62,646 78,668 64,690 80,708 60,728 76,748 68,768 80,800 0,800" fill="#FAF9F6"/></svg>
-      </div>
+      <!-- Character Stage Container -->
+      <div class="stage-wrapper">
+        <div class="stage" id="stage" aria-label="Interactive Characters">
+          <div class="stage-backdrop"></div>
+          <div class="stage-pedestal" aria-hidden="true"></div>
 
-      <div class="hero-right">
-        <div class="hero-carousel" id="heroCarousel">
-          <div class="carousel-track">
-            <!-- Slide 1: Live Vitals -->
-            <div class="carousel-slide active">
-              <div class="slide-visual">
-                <div class="slide-inner-card">
-                  <div class="slide-icon-row">
-                    <div class="slide-icon-circle">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAF9F6" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                    </div>
-                    <span class="slide-tag">Live Vitals</span>
-                  </div>
-                  <div class="slide-chart">
-                    <div class="chart-bar-wrap">
-                      <div class="cbar" style="height:40%"></div>
-                      <div class="cbar" style="height:65%"></div>
-                      <div class="cbar" style="height:50%"></div>
-                      <div class="cbar" style="height:80%"></div>
-                      <div class="cbar" style="height:60%"></div>
-                      <div class="cbar" style="height:95%"></div>
-                      <div class="cbar" style="height:70%"></div>
-                      <div class="cbar" style="height:88%"></div>
-                    </div>
-                  </div>
-                  <div class="slide-stat-row">
-                    <div class="slide-stat"><span class="stat-val">98.6°F</span><span class="stat-lbl">Temperature</span></div>
-                    <div class="slide-stat"><span class="stat-val">72 bpm</span><span class="stat-lbl">Heart Rate</span></div>
-                    <div class="slide-stat"><span class="stat-val">99%</span><span class="stat-lbl">SpO2</span></div>
-                  </div>
-                </div>
-                <p class="slide-caption">Real-Time Patient Monitoring</p>
-              </div>
+          <!-- Floating Glass Badges -->
+          <a href="#roles" class="floating-badge badge-patient-pos" aria-label="Patient Portal">
+            <div class="badge-icon-box">👤</div>
+            <div class="badge-meta">
+              <span class="badge-role">Patient Portal <span class="badge-status-dot" title="Live System"></span></span>
+              <span class="badge-desc">Clear treatment pathway</span>
             </div>
+          </a>
 
-            <!-- Slide 2: AI Diagnostics -->
-            <div class="carousel-slide">
-              <div class="slide-visual">
-                <div class="slide-inner-card">
-                  <div class="slide-icon-row">
-                    <div class="slide-icon-circle">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAF9F6" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                    </div>
-                    <span class="slide-tag">AI Diagnostics</span>
-                  </div>
-                  <div class="slide-ai-scan">
-                    <div class="scan-ring outer"></div>
-                    <div class="scan-ring inner"></div>
-                    <div class="scan-line"></div>
-                  </div>
-                  <div class="slide-stat-row">
-                    <div class="slide-stat"><span class="stat-val">3.2s</span><span class="stat-lbl">Scan Time</span></div>
-                    <div class="slide-stat"><span class="stat-val">99.1%</span><span class="stat-lbl">Confidence</span></div>
-                    <div class="slide-stat"><span class="stat-val">12</span><span class="stat-lbl">Biomarkers</span></div>
-                  </div>
-                </div>
-                <p class="slide-caption">Predictive AI Diagnostics</p>
-              </div>
+          <a href="#roles" class="floating-badge badge-doctor-pos" aria-label="Lead Physician">
+            <div class="badge-icon-box">🩺</div>
+            <div class="badge-meta">
+              <span class="badge-role">Lead Physician <span class="badge-status-dot"
+                  title="Live Telemetry"></span></span>
+              <span class="badge-desc">Real-time clinical insights</span>
             </div>
+          </a>
 
-            <!-- Slide 3: EHR Integration -->
-            <div class="carousel-slide">
-              <div class="slide-visual">
-                <div class="slide-inner-card">
-                  <div class="slide-icon-row">
-                    <div class="slide-icon-circle">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAF9F6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-                    </div>
-                    <span class="slide-tag">EHR Integration</span>
-                  </div>
-                  <div class="slide-records">
-                    <div class="record-row"><span class="rec-dot green"></span><span class="rec-label">Patient History</span><span class="rec-status">Synced</span></div>
-                    <div class="record-row"><span class="rec-dot green"></span><span class="rec-label">Lab Results</span><span class="rec-status">Updated</span></div>
-                    <div class="record-row"><span class="rec-dot yellow"></span><span class="rec-label">Prescriptions</span><span class="rec-status">Pending</span></div>
-                    <div class="record-row"><span class="rec-dot green"></span><span class="rec-label">Imaging Data</span><span class="rec-status">Uploaded</span></div>
-                  </div>
-                </div>
-                <p class="slide-caption">Unified EHR Workflows</p>
-              </div>
+          <a href="#roles" class="floating-badge badge-student-pos" aria-label="Medical Student">
+            <div class="badge-icon-box">📚</div>
+            <div class="badge-meta">
+              <span class="badge-role">Medical Student <span class="badge-status-dot"
+                  title="Simulations Active"></span></span>
+              <span class="badge-desc">Interactive residency cases</span>
             </div>
-          </div>
-
-          <div class="carousel-dots">
-            <button class="cdot active" data-slide="0"></button>
-            <button class="cdot" data-slide="1"></button>
-            <button class="cdot" data-slide="2"></button>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -213,58 +143,130 @@
     <section id="ecosystem" class="mv-section mv-ecosystem">
       <div class="mv-container">
         <div class="mv-section-header">
-          <span class="mv-section-badge">PLATFORM ARCHITECTURE</span>
-          <h2 class="mv-section-title">Two Specialized Interfaces. One Unified Platform.</h2>
+          <h2 class="mv-section-title">Two Specialized Interfaces.<br>One Unified Platform.</h2>
           <p class="mv-section-subtitle">Frontline clinical delivery and computational biomedical research running in tandem.</p>
         </div>
 
-        <div class="mv-bento-grid">
-          <div class="mv-bento mv-bento--dark" onclick="location.hash='#roles'">
-            <div class="mv-bento__top">
-              <div class="mv-bento__icon mv-bento__icon--sage">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/><circle cx="12" cy="12" r="2"/></svg>
+        <!-- Character + Cards Stage -->
+        <div class="eco-stage">
+
+          <!-- Doctor Character (points right → at Clinical card) -->
+          <div class="eco-char eco-char--doctor" aria-hidden="true">
+            <img src="public/doctor_transparent.png" alt="Doctor character pointing at clinical interface card">
+          </div>
+
+          <!-- Clinical Suite Card -->
+          <div class="eco-card eco-card--dark" onclick="location.hash='#roles'" role="button" tabindex="0" aria-label="Clinical Suite — Professional Care Interface">
+            <div class="eco-card__header">
+              <div class="eco-card__chips">
+                <span class="eco-chip eco-chip--green">
+                  <span class="eco-chip__dot eco-chip__dot--green"></span>CLINICAL SUITE
+                </span>
+                <span class="eco-chip eco-chip--ghost">HIPAA Verified</span>
               </div>
-              <div class="mv-bento__tags">
-                <span class="mv-bento__chip mv-bento__chip--green">CLINICAL SUITE</span>
-                <span class="mv-bento__stat">HIPAA Verified</span>
+              <div class="eco-card__icon eco-card__icon--sage">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/><circle cx="12" cy="12" r="2"/>
+                </svg>
               </div>
             </div>
-            <h3 class="mv-bento__title">Professional Care Interface</h3>
-            <p class="mv-bento__pitch">Patient telemetry, diagnostic inference, and clinical governance.</p>
-            <div class="mv-bento__features">
-              <div class="mv-bento__feature">Patient Portal &amp; Telehealth</div>
-              <div class="mv-bento__feature">Doctor AI Diagnostics</div>
-              <div class="mv-bento__feature">Admin Approval Queue</div>
-            </div>
-            <div class="mv-bento__footer">
-              <span class="mv-bento__link">Launch Clinical Workstation &rarr;</span>
-              <div class="mv-bento__indicator"><span class="mv-pulse mv-pulse--green"></span> 3 Roles Online</div>
+
+            <h3 class="eco-card__title">Professional Care<br>Interface</h3>
+            <p class="eco-card__desc">Patient telemetry &amp; clinical AI diagnostics for frontline care delivery.</p>
+
+            <ul class="eco-card__features">
+              <li>
+                <span class="eco-feat-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Patient Portal &amp; Telehealth
+              </li>
+              <li>
+                <span class="eco-feat-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Doctor AI Diagnostics
+              </li>
+              <li>
+                <span class="eco-feat-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Admin Approval Queue
+              </li>
+            </ul>
+
+            <div class="eco-card__footer">
+              <a href="#roles" class="eco-signin-btn eco-signin-btn--light">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/>
+                </svg>
+                Sign In to Clinical Suite
+              </a>
+              <div class="eco-card__status">
+                <span class="eco-pulse eco-pulse--green"></span>3 Roles Online
+              </div>
             </div>
           </div>
 
-          <div class="mv-bento mv-bento--light" onclick="location.hash='#roles'">
-            <div class="mv-bento__top">
-              <div class="mv-bento__icon mv-bento__icon--dusty">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31M14 9.3V1.99M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
+          <!-- Research Hub Card -->
+          <div class="eco-card eco-card--light" onclick="location.hash='#roles'" role="button" tabindex="0" aria-label="Research Lab — Educational Research Hub">
+            <div class="eco-card__header">
+              <div class="eco-card__chips">
+                <span class="eco-chip eco-chip--blue">
+                  <span class="eco-chip__dot eco-chip__dot--blue"></span>RESEARCH LAB
+                </span>
+                <span class="eco-chip eco-chip--ghost-dark">AutoML &amp; WebGL</span>
               </div>
-              <div class="mv-bento__tags">
-                <span class="mv-bento__chip mv-bento__chip--blue">RESEARCH LAB</span>
-                <span class="mv-bento__stat">AutoML &amp; WebGL</span>
+              <div class="eco-card__icon eco-card__icon--dusty">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10 2v7.31M14 9.3V1.99M8.5 2h7M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/>
+                </svg>
               </div>
             </div>
-            <h3 class="mv-bento__title">Educational Research Hub</h3>
-            <p class="mv-bento__pitch">End-to-end ML training pipeline and 3D organ exploration.</p>
-            <div class="mv-bento__features">
-              <div class="mv-bento__feature">10-Step ML Workbench</div>
-              <div class="mv-bento__feature">Interactive 3D Heart Studio</div>
-              <div class="mv-bento__feature">Federated Learning Sim</div>
-            </div>
-            <div class="mv-bento__footer">
-              <span class="mv-bento__link">Launch Research Modules &rarr;</span>
-              <div class="mv-bento__indicator"><span class="mv-pulse mv-pulse--blue"></span> 10 Stages Ready</div>
+
+            <h3 class="eco-card__title eco-card__title--dark">Educational<br>Research Hub</h3>
+            <p class="eco-card__desc eco-card__desc--dark">End-to-end ML training &amp; 3D organ exploration for biomedical research.</p>
+
+            <ul class="eco-card__features eco-card__features--dark">
+              <li>
+                <span class="eco-feat-icon eco-feat-icon--dark">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                10-Step ML Workbench
+              </li>
+              <li>
+                <span class="eco-feat-icon eco-feat-icon--dark">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Interactive 3D Heart Studio
+              </li>
+              <li>
+                <span class="eco-feat-icon eco-feat-icon--dark">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Federated Learning Sim
+              </li>
+            </ul>
+
+            <div class="eco-card__footer eco-card__footer--dark">
+              <a href="#roles" class="eco-signin-btn eco-signin-btn--dark">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/>
+                </svg>
+                Sign In to Research Hub
+              </a>
+              <div class="eco-card__status eco-card__status--dark">
+                <span class="eco-pulse eco-pulse--blue"></span>10 Stages Ready
+              </div>
             </div>
           </div>
-        </div>
+
+          <!-- Student Character (points left ← at Research card) -->
+          <div class="eco-char eco-char--student" aria-hidden="true">
+            <img src="public/student_transparent.png" alt="Medical student pointing at research hub card">
+          </div>
+
+        </div><!-- /eco-stage -->
       </div>
     </section>
 
@@ -328,12 +330,16 @@
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Hippocampal Atrophy</span>
                     <strong class="mv-gauge__val mv-gauge__val--red">87% High Risk</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--red" style="width:87%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--red" style="width:87%"></div>
+                    </div>
                   </div>
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Biomarker Severity</span>
                     <strong class="mv-gauge__val mv-gauge__val--yellow">Stage II Alert</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:65%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:65%"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -358,12 +364,16 @@
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Lesion Volume</span>
                     <strong class="mv-gauge__val mv-gauge__val--yellow">2.8 cm³</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:58%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:58%"></div>
+                    </div>
                   </div>
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Confidence Rate</span>
                     <strong class="mv-gauge__val mv-gauge__val--green">99.1% High</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--green" style="width:99%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--green" style="width:99%"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -384,12 +394,16 @@
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Cell Morphology</span>
                     <strong class="mv-gauge__val mv-gauge__val--green">Benign Structure</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--green" style="width:94%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--green" style="width:94%"></div>
+                    </div>
                   </div>
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Perimeter Uniformity</span>
                     <strong class="mv-gauge__val mv-gauge__val--green">97.8% Regular</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--green" style="width:97%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--green" style="width:97%"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -398,21 +412,29 @@
             <div class="mv-drp-screen" id="screen-parkinsons">
               <div class="mv-diag-layout">
                 <div class="mv-audio">
-                  <div class="mv-audio__bar f1"></div><div class="mv-audio__bar f2"></div>
-                  <div class="mv-audio__bar f3"></div><div class="mv-audio__bar f4"></div>
-                  <div class="mv-audio__bar f5"></div><div class="mv-audio__bar f6"></div>
-                  <div class="mv-audio__bar f7"></div><div class="mv-audio__bar f8"></div>
+                  <div class="mv-audio__bar f1"></div>
+                  <div class="mv-audio__bar f2"></div>
+                  <div class="mv-audio__bar f3"></div>
+                  <div class="mv-audio__bar f4"></div>
+                  <div class="mv-audio__bar f5"></div>
+                  <div class="mv-audio__bar f6"></div>
+                  <div class="mv-audio__bar f7"></div>
+                  <div class="mv-audio__bar f8"></div>
                 </div>
                 <div class="mv-gauges">
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Resting Tremor Peak</span>
                     <strong class="mv-gauge__val mv-gauge__val--yellow">5.4 Hz Band</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:62%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:62%"></div>
+                    </div>
                   </div>
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Gait Telemetry</span>
                     <strong class="mv-gauge__val mv-gauge__val--yellow">62% Moderate</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:62%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--yellow" style="width:62%"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -421,19 +443,25 @@
             <div class="mv-drp-screen" id="screen-diabetes">
               <div class="mv-diag-layout">
                 <div class="mv-glucose">
-                  <div class="mv-glucose__track"><div class="mv-glucose__fill"></div></div>
+                  <div class="mv-glucose__track">
+                    <div class="mv-glucose__fill"></div>
+                  </div>
                   <div class="mv-glucose__threshold">Critical Threshold: 180 mg/dL</div>
                 </div>
                 <div class="mv-gauges">
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Fasting Level</span>
                     <strong class="mv-gauge__val mv-gauge__val--red">214 mg/dL Spike</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--red" style="width:88%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--red" style="width:88%"></div>
+                    </div>
                   </div>
                   <div class="mv-gauge">
                     <span class="mv-gauge__lbl">Auto-Dispatch</span>
                     <strong class="mv-gauge__val mv-gauge__val--red">Email Triggered</strong>
-                    <div class="mv-gauge__bar"><div class="mv-gauge__fill mv-gauge__fill--red" style="width:100%"></div></div>
+                    <div class="mv-gauge__bar">
+                      <div class="mv-gauge__fill mv-gauge__fill--red" style="width:100%"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -468,7 +496,8 @@
         <div class="mv-section-header">
           <span class="mv-section-badge">UNIFIED ROLE WORKSTATIONS</span>
           <h2 class="mv-section-title">Interactive Stakeholder Command Hub</h2>
-          <p class="mv-section-subtitle">Toggle through real platform interfaces tailored for patient care, clinical diagnosis, governance, and ML research.</p>
+          <p class="mv-section-subtitle">Toggle through real platform interfaces tailored for patient care, clinical
+            diagnosis, governance, and ML research.</p>
         </div>
 
         <div class="mv-role-tabs">
@@ -496,7 +525,9 @@
               <div class="mv-role-sim">
                 <div class="mv-sim">
                   <div class="mv-sim__header">
-                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span class="mv-sim__dot mv-sim__dot--yellow"></span><span class="mv-sim__dot mv-sim__dot--green"></span></div>
+                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span
+                        class="mv-sim__dot mv-sim__dot--yellow"></span><span
+                        class="mv-sim__dot mv-sim__dot--green"></span></div>
                     <span class="mv-sim__title">Patient Portal • Active Consultation</span>
                     <span class="mv-sim__chip mv-sim__chip--live">Verified Session</span>
                   </div>
@@ -513,12 +544,17 @@
                           <span>Cardiology • 10:30 AM Tomorrow</span>
                         </div>
                       </div>
-                      <button class="mv-sim__cta" onclick="alert('Telehealth Video Room Session Initialized!')">Enter Encrypted Video Room</button>
+                      <button class="mv-sim__cta" onclick="alert('Telehealth Video Room Session Initialized!')">Enter
+                        Encrypted Video Room</button>
                     </div>
                     <div class="mv-sim__stats">
-                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">3</span><span class="mv-sim__stat-lbl">Prescriptions</span></div>
-                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">2</span><span class="mv-sim__stat-lbl">Lab Reports</span></div>
-                      <div class="mv-sim__stat"><span class="mv-sim__stat-val mv-sim__stat-val--green">Active</span><span class="mv-sim__stat-lbl">Doctor Sync</span></div>
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">3</span><span
+                          class="mv-sim__stat-lbl">Prescriptions</span></div>
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">2</span><span
+                          class="mv-sim__stat-lbl">Lab Reports</span></div>
+                      <div class="mv-sim__stat"><span
+                          class="mv-sim__stat-val mv-sim__stat-val--green">Active</span><span
+                          class="mv-sim__stat-lbl">Doctor Sync</span></div>
                     </div>
                   </div>
                 </div>
@@ -542,7 +578,9 @@
               <div class="mv-role-sim">
                 <div class="mv-sim">
                   <div class="mv-sim__header">
-                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span class="mv-sim__dot mv-sim__dot--yellow"></span><span class="mv-sim__dot mv-sim__dot--green"></span></div>
+                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span
+                        class="mv-sim__dot mv-sim__dot--yellow"></span><span
+                        class="mv-sim__dot mv-sim__dot--green"></span></div>
                     <span class="mv-sim__title">Physician Station • Dr. S. Khan</span>
                     <span class="mv-sim__chip mv-sim__chip--red">Risk Detected</span>
                   </div>
@@ -560,8 +598,10 @@
                       <button class="mv-sim__cta mv-sim__cta--red" id="doctorAlertBtn">Dispatch Emergency Alert</button>
                     </div>
                     <div class="mv-sim__list">
-                      <div class="mv-sim__item"><span>John Doe (#104)</span><span class="mv-sim__tag mv-sim__tag--red">Action Req</span></div>
-                      <div class="mv-sim__item"><span>Elena Rostova (#105)</span><span class="mv-sim__tag mv-sim__tag--green">Stable</span></div>
+                      <div class="mv-sim__item"><span>John Doe (#104)</span><span
+                          class="mv-sim__tag mv-sim__tag--red">Action Req</span></div>
+                      <div class="mv-sim__item"><span>Elena Rostova (#105)</span><span
+                          class="mv-sim__tag mv-sim__tag--green">Stable</span></div>
                     </div>
                   </div>
                 </div>
@@ -585,7 +625,9 @@
               <div class="mv-role-sim">
                 <div class="mv-sim">
                   <div class="mv-sim__header">
-                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span class="mv-sim__dot mv-sim__dot--yellow"></span><span class="mv-sim__dot mv-sim__dot--green"></span></div>
+                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span
+                        class="mv-sim__dot mv-sim__dot--yellow"></span><span
+                        class="mv-sim__dot mv-sim__dot--green"></span></div>
                     <span class="mv-sim__title">Admin Console • Governance Queue</span>
                     <span class="mv-sim__chip mv-sim__chip--yellow" id="adminQueueCount">1 Pending</span>
                   </div>
@@ -600,15 +642,21 @@
                         <div><strong>Patient:</strong> John Doe (#104) • Tomorrow 10:30 AM</div>
                       </div>
                       <div class="mv-sim__split" id="adminActionButtons">
-                        <button class="mv-sim__cta mv-sim__cta--green" onclick="handleAdminApproval(true)">Approve Consultation</button>
-                        <button class="mv-sim__cta mv-sim__cta--red-ghost" onclick="handleAdminApproval(false)">Reject</button>
+                        <button class="mv-sim__cta mv-sim__cta--green" onclick="handleAdminApproval(true)">Approve
+                          Consultation</button>
+                        <button class="mv-sim__cta mv-sim__cta--red-ghost"
+                          onclick="handleAdminApproval(false)">Reject</button>
                       </div>
                       <div class="mv-sim__feedback" id="adminFeedback" style="display:none;"></div>
                     </div>
                     <div class="mv-sim__stats">
-                      <div class="mv-sim__stat"><span class="mv-sim__stat-val mv-sim__stat-val--green">99.98%</span><span class="mv-sim__stat-lbl">Uptime</span></div>
-                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">12</span><span class="mv-sim__stat-lbl">Active Rooms</span></div>
-                      <div class="mv-sim__stat"><span class="mv-sim__stat-val mv-sim__stat-val--green">0</span><span class="mv-sim__stat-lbl">Audit Flags</span></div>
+                      <div class="mv-sim__stat"><span
+                          class="mv-sim__stat-val mv-sim__stat-val--green">99.98%</span><span
+                          class="mv-sim__stat-lbl">Uptime</span></div>
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val">12</span><span
+                          class="mv-sim__stat-lbl">Active Rooms</span></div>
+                      <div class="mv-sim__stat"><span class="mv-sim__stat-val mv-sim__stat-val--green">0</span><span
+                          class="mv-sim__stat-lbl">Audit Flags</span></div>
                     </div>
                   </div>
                 </div>
@@ -632,7 +680,9 @@
               <div class="mv-role-sim">
                 <div class="mv-sim">
                   <div class="mv-sim__header">
-                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span class="mv-sim__dot mv-sim__dot--yellow"></span><span class="mv-sim__dot mv-sim__dot--green"></span></div>
+                    <div class="mv-sim__dots"><span class="mv-sim__dot mv-sim__dot--red"></span><span
+                        class="mv-sim__dot mv-sim__dot--yellow"></span><span
+                        class="mv-sim__dot mv-sim__dot--green"></span></div>
                     <span class="mv-sim__title">ML Pipeline Visualizer</span>
                     <span class="mv-sim__chip mv-sim__chip--blue" id="mlStepChip">Step 7 of 10</span>
                   </div>
@@ -648,7 +698,8 @@
                         <span class="mv-sim__chip-sm">5-Fold CV</span>
                         <span class="mv-sim__chip-sm">Top AUC: 0.992</span>
                       </div>
-                      <button class="mv-sim__cta" id="pipelineActionBtn" onclick="advancePipelineDemo()">Advance to Next Step</button>
+                      <button class="mv-sim__cta" id="pipelineActionBtn" onclick="advancePipelineDemo()">Advance to Next
+                        Step</button>
                     </div>
                   </div>
                 </div>
@@ -666,7 +717,8 @@
         <div class="mv-section-header">
           <span class="mv-section-badge">EDUCATIONAL 3D MODULE</span>
           <h2 class="mv-section-title">Interactive 3D Human Anatomy Studio</h2>
-          <p class="mv-section-subtitle">Select any disease module below to load its anatomical model — orbit 360°, zoom, and observe the live cardiac rhythm.</p>
+          <p class="mv-section-subtitle">Select any disease module below to load its anatomical model — orbit 360°,
+            zoom, and observe the live cardiac rhythm.</p>
         </div>
 
         <div class="mv-viewer-card" data-organ-viewer data-organ-state="idle" data-autoload="true">
@@ -684,7 +736,11 @@
               <p class="mv-organ__empty">Select a prediction module below to load its anatomical model.</p>
             </div>
             <div class="mv-viewer-card__hint">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="m4.93 4.93 4.24 4.24" />
+                <path d="m14.83 9.17 4.24-4.24" />
+              </svg>
               <span>Click &amp; Drag to Rotate • Scroll to Zoom</span>
             </div>
           </div>
@@ -702,10 +758,15 @@
             </div>
             <div class="mv-callout">
               <div class="mv-callout__head">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8AAFC0" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8AAFC0" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="16" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
                 <strong id="calloutTitle">Human Heart</strong>
               </div>
-              <p id="calloutDesc">Four-chambered neuromuscular pump circulating ~5 L/min through systemic &amp; pulmonary loops.</p>
+              <p id="calloutDesc">Four-chambered neuromuscular pump circulating ~5 L/min through systemic &amp;
+                pulmonary loops.</p>
             </div>
             <div class="mv-viewer-card__reset">
               <button type="button" class="mv-reset-btn" data-organ-reset>Reset 3D View</button>
@@ -803,5 +864,190 @@
   </div>
 
   <script src="script.js" type="module"></script>
+  <script>
+    // Eye cursor-tracking animation engine
+    (function () {
+      const W = 578, H = 432;
+      const CHARACTERS = [
+        {
+          id: 'patient',
+          src: 'public/patient.png',
+          alt: 'Patient',
+          cutY: 0.41 * H,
+          pivotX: 290,
+          iris: 5.0,
+          eyes: [
+            { x: 269.4, y: 108.8, rx: 8.8, ry: 6.1 },
+            { x: 309.4, y: 108.8, rx: 8.8, ry: 6.1 }
+          ]
+        },
+        {
+          id: 'doctor',
+          src: 'public/doctor.png',
+          alt: 'Doctor',
+          cutY: 0.40 * H,
+          pivotX: 289,
+          iris: 6.6,
+          eyes: [
+            { x: 264.5, y: 112.5, rx: 11.0, ry: 7.2 },
+            { x: 314.5, y: 112.5, rx: 11.0, ry: 7.2 }
+          ]
+        },
+        {
+          id: 'student',
+          src: 'public/student.png',
+          alt: 'Medical student',
+          cutY: 0.44 * H,
+          pivotX: 292,
+          iris: 6.5,
+          eyes: [
+            { x: 265.3, y: 127.5, rx: 10.3, ry: 7.5 },
+            { x: 312.9, y: 127.2, rx: 10.3, ry: 7.5 }
+          ]
+        }
+      ];
+
+      const NS = 'http://www.w3.org/2000/svg';
+      const stage = document.getElementById('stage');
+      if (!stage) return;
+
+      function svgEl(tag, attrs, parent) {
+        const el = document.createElementNS(NS, tag);
+        for (const k in attrs) el.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(el);
+        return el;
+      }
+
+      function buildEye(svg, defs, cfg, iris, key) {
+        const { x, y, rx, ry } = cfg;
+        const sg = svgEl('radialGradient', { id: `sg-${key}`, cx: '50%', cy: '55%', r: '60%' }, defs);
+        svgEl('stop', { offset: '0', 'stop-color': '#FAF9F6' }, sg);
+        svgEl('stop', { offset: '.7', 'stop-color': '#eceae4' }, sg);
+        svgEl('stop', { offset: '1', 'stop-color': '#d2cec6' }, sg);
+
+        const lg = svgEl('linearGradient', { id: `lid-${key}`, x1: 0, y1: 0, x2: 0, y2: 1 }, defs);
+        svgEl('stop', { offset: '0', 'stop-color': '#30434A', 'stop-opacity': '.38' }, lg);
+        svgEl('stop', { offset: '.55', 'stop-color': '#30434A', 'stop-opacity': '0' }, lg);
+
+        const ig = svgEl('radialGradient', { id: `ig-${key}`, cx: '50%', cy: '50%', r: '50%' }, defs);
+        svgEl('stop', { offset: '0', 'stop-color': '#1a2327' }, ig);
+        svgEl('stop', { offset: '.55', 'stop-color': '#30434A' }, ig);
+        svgEl('stop', { offset: '.88', 'stop-color': '#4a6068' }, ig);
+        svgEl('stop', { offset: '1', 'stop-color': '#202a2e' }, ig);
+
+        const cp = svgEl('clipPath', { id: `cp-${key}` }, defs);
+        svgEl('ellipse', { cx: x, cy: y, rx, ry }, cp);
+
+        const g = svgEl('g', { 'clip-path': `url(#cp-${key})` }, svg);
+        svgEl('ellipse', { cx: x, cy: y, rx, ry, fill: `url(#sg-${key})` }, g);
+
+        const mover = svgEl('g', {}, g);
+        svgEl('circle', { cx: x, cy: y, r: iris, fill: `url(#ig-${key})` }, mover);
+        svgEl('circle', { cx: x, cy: y, r: iris * 0.5, fill: '#0c1012' }, mover);
+        const hl = svgEl('circle', { cx: x + iris * 0.32, cy: y - iris * 0.34, r: iris * 0.22, fill: '#FAF9F6', opacity: '.94' }, mover);
+        svgEl('ellipse', { cx: x, cy: y, rx, ry, fill: `url(#lid-${key})` }, g);
+
+        return { mover, cfg, hl };
+      }
+
+      const actors = CHARACTERS.map(c => {
+        const box = document.createElement('div');
+        box.className = `char ${c.id}`;
+        box.innerHTML = `
+          <div class="body"><img src="${c.src}" alt="${c.alt}" draggable="false" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='public/${c.id}.png';}"></div>
+          <div class="head"><img src="${c.src}" alt="" aria-hidden="true" draggable="false" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='public/${c.id}.png';}"></div>`;
+
+        const head = box.querySelector('.head');
+        head.style.transformOrigin = `${(c.pivotX / W * 100).toFixed(2)}% ${(c.cutY / H * 100).toFixed(2)}%`;
+
+        const svg = svgEl('svg', { class: 'eyes', viewBox: `0 0 ${W} ${H}`, 'aria-hidden': 'true' });
+        const defs = svgEl('defs', {}, svg);
+        const eyes = c.eyes.map((e, i) => buildEye(svg, defs, e, c.iris, `${c.id}${i}`));
+        head.appendChild(svg);
+        stage.appendChild(box);
+
+        return {
+          c, box, head, eyes, img: box.querySelector('.body img'),
+          gx: 0, gy: 0, tilt: 0, lift: 0,
+          phase: Math.random() * 6.28
+        };
+      });
+
+      const canTrack = matchMedia('(hover: hover) and (pointer: fine)').matches &&
+        !matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const MAX_TILT = 3.6;
+      const IDLE_AFTER = 2000;
+      const mouse = { x: innerWidth / 2, y: innerHeight / 2, last: -1e9 };
+
+      function applyPose(a, gx, gy, tilt, lift) {
+        for (const e of a.eyes) {
+          const { rx, ry } = e.cfg;
+          const dx = gx * rx * 0.44, dy = gy * ry * 0.36;
+          e.mover.setAttribute('transform', `translate(${dx.toFixed(2)} ${dy.toFixed(2)})`);
+          e.hl.setAttribute('transform', `translate(${(-dx * 0.55).toFixed(2)} ${(-dy * 0.55).toFixed(2)})`);
+        }
+        a.head.style.transform = `translate(${(tilt * 0.28).toFixed(2)}px, ${lift.toFixed(2)}px) rotate(${tilt.toFixed(2)}deg)`;
+      }
+
+      actors.forEach(a => applyPose(a, 0, 0, 0, 0));
+
+      if (canTrack) {
+        addEventListener('pointermove', e => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+          mouse.last = performance.now();
+        }, { passive: true });
+
+        document.addEventListener('pointerleave', () => {
+          mouse.last = -1e9;
+        });
+
+        let prev = performance.now();
+        (function frame(now) {
+          const dt = Math.min(0.05, (now - prev) / 1000);
+          prev = now;
+          const t = now / 1000;
+          const idle = now - mouse.last > IDLE_AFTER;
+
+          for (const a of actors) {
+            const r = a.img.getBoundingClientRect();
+            const eyeX = r.left + (a.c.pivotX / W) * r.width;
+            const eyeY = r.top + (a.c.eyes[0].y / H) * r.height;
+
+            let tgx, tgy, ttilt, tlift;
+            if (idle) {
+              tgx = Math.sin(t * 0.52 + a.phase) * 0.5;
+              tgy = Math.sin(t * 0.4 + a.phase * 1.6) * 0.28;
+              ttilt = Math.sin(t * 0.35 + a.phase) * 0.9;
+              tlift = 0;
+            } else {
+              const dx = mouse.x - eyeX;
+              const dy = mouse.y - eyeY;
+              const R = Math.max(200, r.width * 0.85);
+              let vx = dx / R, vy = dy / R;
+              const len = Math.hypot(vx, vy);
+              if (len > 1) { vx /= len; vy /= len; }
+              tgx = vx;
+              tgy = vy;
+              ttilt = Math.max(-1, Math.min(1, dx / (innerWidth * 0.5))) * MAX_TILT;
+              tlift = Math.max(-1, Math.min(1, dy / (innerHeight * 0.5))) * 1.5;
+            }
+
+            const ke = 1 - Math.exp(-dt * 9.5);
+            const kh = 1 - Math.exp(-dt * 3.4);
+            a.gx += (tgx - a.gx) * ke;
+            a.gy += (tgy - a.gy) * ke;
+            a.tilt += (ttilt - a.tilt) * kh;
+            a.lift += (tlift - a.lift) * kh;
+
+            applyPose(a, a.gx, a.gy, a.tilt, a.lift);
+            a.box.style.setProperty('--bob', (Math.sin(t * 0.95 + a.phase) * 1.3).toFixed(2) + 'px');
+          }
+          requestAnimationFrame(frame);
+        })(prev);
+      }
+    })();
+  </script>
 </body>
+
 </html>
