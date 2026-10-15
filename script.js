@@ -17,16 +17,16 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 const MODEL_BASE = 'models/';
 
 const MODULES = [
-  { name: 'Heart Disease',       organ: 'Human heart', model: 'heart.glb',    tag: 'Extended',         tagColor: '#7A9E8B', default: true },
-  { name: 'Diabetes',            organ: 'Pancreas',    model: 'diabetes.glb', tag: 'Clinical Data',    tagColor: '#8AAFC0' },
-  { name: "Parkinson's Disease", organ: 'Human brain', model: 'brain2.glb',    tag: 'Clinical Data',    tagColor: '#8AAFC0' },
-  { name: 'Brain Tumor (MRI)',   organ: 'Human brain', model: 'brain.glb',    tag: 'Medical Imaging',  tagColor: '#FAD6A5' },
-  { name: 'Breast Cancer',       organ: 'Breast',      model: 'breast.glb',   tag: 'Medical Imaging',  tagColor: '#FAD6A5' },
-  { name: "Alzheimer's (MRI)",   organ: 'Human brain', model: 'brain.glb',    tag: 'Medical Imaging',  tagColor: '#FAD6A5' },
-  { name: 'Kidney Disease',      organ: 'Kidney',      model: 'kidney.glb',   tag: 'Extended',         tagColor: '#7A9E8B' },
-  { name: 'Liver Disease',       organ: 'Liver',       model: 'Liver.glb',    tag: 'Extended',         tagColor: '#7A9E8B' },
-  { name: 'Pneumonia & Malaria', organ: 'Lungs',       model: 'Lungs.glb',    tag: 'Medical Imaging',  tagColor: '#FAD6A5' },
-  { name: 'Skin Disease',        organ: 'Skin',        model: 'skin.glb',     tag: 'Medical Imaging',  tagColor: '#FAD6A5' },
+  { name: 'Heart Disease', organ: 'Human heart', model: 'heart.glb', tag: 'Extended', tagColor: '#7A9E8B', default: true },
+  { name: 'Diabetes', organ: 'Pancreas', model: 'diabetes.glb', tag: 'Clinical Data', tagColor: '#8AAFC0' },
+  { name: "Parkinson's Disease", organ: 'Human brain', model: 'brain2.glb', tag: 'Clinical Data', tagColor: '#8AAFC0' },
+  { name: 'Brain Tumor (MRI)', organ: 'Human brain', model: 'brain.glb', tag: 'Medical Imaging', tagColor: '#FAD6A5' },
+  { name: 'Breast Cancer', organ: 'Breast', model: 'breast.glb', tag: 'Medical Imaging', tagColor: '#FAD6A5' },
+  { name: "Alzheimer's (MRI)", organ: 'Human brain', model: 'brain.glb', tag: 'Medical Imaging', tagColor: '#FAD6A5' },
+  { name: 'Kidney Disease', organ: 'Kidney', model: 'kidney.glb', tag: 'Extended', tagColor: '#7A9E8B' },
+  { name: 'Liver Disease', organ: 'Liver', model: 'Liver.glb', tag: 'Extended', tagColor: '#7A9E8B' },
+  { name: 'Pneumonia & Malaria', organ: 'Lungs', model: 'Lungs.glb', tag: 'Medical Imaging', tagColor: '#FAD6A5' },
+  { name: 'Skin Disease', organ: 'Skin', model: 'skin.glb', tag: 'Medical Imaging', tagColor: '#FAD6A5' },
 ];
 
 const PALETTE = {
@@ -92,62 +92,7 @@ function initSplash() {
 
   document.getElementById('year').textContent = new Date().getFullYear();
 }
-/* ---------- Hero carousel ---------- */
-function initHeroCarousel() {
-  const slides = document.querySelectorAll('.hero-carousel .carousel-slide');
-  const dots = document.querySelectorAll('.hero-carousel .cdot');
-  if (!slides.length || !dots.length) return;
 
-  let current = 0;
-  let timer = null;
-
-  function go(index) {
-    slides[current].classList.remove('active');
-    dots[current].classList.remove('active');
-    current = index;
-    slides[current].classList.add('active');
-    dots[current].classList.add('active');
-  }
-
-  function next() {
-    go((current + 1) % slides.length);
-  }
-
-  function startAuto() {
-    if (slides.length < 2) return;
-    stopAuto();
-    timer = setInterval(next, 4500);
-  }
-
-  function stopAuto() {
-    if (timer) { clearInterval(timer); timer = null; }
-  }
-
-  // Click on dots
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      go(i);
-      startAuto(); // reset the timer so it doesn't jump immediately after
-    });
-  });
-
-  // Pause on hover (nice touch on desktop)
-  const carousel = document.querySelector('.hero-carousel');
-  if (carousel) {
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', startAuto);
-  }
-
-  // Pause when tab is hidden
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'visible') startAuto();
-    else stopAuto();
-  });
-
-  // Respect reduced motion
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReducedMotion) startAuto();
-}
 /* ------------------------------------------------------------------
    Build the model selector grid from MODULES
 ------------------------------------------------------------------ */
@@ -497,8 +442,49 @@ function initViewer() {
 }
 
 /* ------------------------------------------------------------------
+   Navbar active link handler
+------------------------------------------------------------------ */
+function initNavbarLinks() {
+  const links = document.querySelectorAll('.mv-nav-link');
+  if (!links.length) return;
+
+  links.forEach(link => {
+    link.addEventListener('click', function () {
+      links.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  const sections = Array.from(links).map(link => {
+    const id = link.getAttribute('href');
+    if (id && id.startsWith('#')) return document.querySelector(id);
+    return null;
+  }).filter(Boolean);
+
+  window.addEventListener('scroll', () => {
+    let currentId = '';
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    sections.forEach(section => {
+      const top = section.offsetTop - 140;
+      if (scrollY >= top) {
+        currentId = '#' + section.id;
+      }
+    });
+    if (currentId) {
+      links.forEach(link => {
+        if (link.getAttribute('href') === currentId) {
+          links.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }
+  }, { passive: true });
+}
+
+/* ------------------------------------------------------------------
    Boot everything
 ------------------------------------------------------------------ */
 initSplash();
 buildModelGrid();
 initViewer();
+initNavbarLinks();
